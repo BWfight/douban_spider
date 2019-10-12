@@ -1,6 +1,6 @@
-*.md linguist-language=Java
-*.png linguist-language=Java
-*.html linguist-language=Java
-*.txt linguist-language=Java
-*.csv linguist-language=Java
-*.xlsx linguist-language=Java
+*.md linguist-language=Python
+*.png linguist-language=Python
+*.html linguist-language=Python
+*.txt linguist-language=Python
+*.csv linguist-language=Python
+*.xlsx linguist-language=Python
