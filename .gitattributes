@@ -1,0 +1,6 @@
+*.md linguist-language=Java
+*.png linguist-language=Java
+*.html linguist-language=Java
+*.txt linguist-language=Java
+*.csv linguist-language=Java
+*.xlsx linguist-language=Java
