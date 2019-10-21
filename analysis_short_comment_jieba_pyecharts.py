@@ -7,7 +7,7 @@ from pyecharts.charts import Pie, Bar, WordCloud
 
 '''
 author: BW
-vision: 1.0
+vision: 1.1
 '''
 
 excel_path = '豆瓣上海堡垒短评.xlsx'
@@ -111,11 +111,39 @@ rating_bar = (
 rating_bar.render('comment-rating-bar.html')
 
 rating_pie = (
-    Pie()
+    Pie(init_opts=opts.InitOpts(theme=ThemeType.WALDEN))
         .add("", [list(z) for z in zip(['很差', '较差', '还行', '推荐', '力荐'], rating)])
         .set_global_opts(title_opts=opts.TitleOpts(title="上海堡垒短评评星频数"))
         .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
+        .render('comment-rating-pie.html')
 )
-rating_pie.render('comment-rating-pie.html')
+
+rating_pie = (
+    Pie()
+        .add("", [list(z) for z in zip(['很差', '较差', '还行', '推荐', '力荐'], rating)],
+            radius=["30%", "75%"],
+            center=["40%", "50%"],
+            rosetype="radius")
+        .set_global_opts(
+            title_opts=opts.TitleOpts(title="上海堡垒短评评星频数"),
+            legend_opts=opts.LegendOpts(type_="scroll", pos_left="80%", orient="vertical")
+            )
+        .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
+        .render('comment-rating-pie玫瑰图R.html'.format(word))
+    )
+
+rating_pie = (
+    Pie()
+        .add("", [list(z) for z in zip(['很差', '较差', '还行', '推荐', '力荐'], rating)],
+            radius=["30%", "75%"],
+            center=["40%", "50%"],
+            rosetype="area")
+        .set_global_opts(
+            title_opts=opts.TitleOpts(title="上海堡垒短评评星频数"),
+            legend_opts=opts.LegendOpts(type_="scroll", pos_left="70%", orient="vertical")
+            )
+        .set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
+        .render('comment-rating-pie玫瑰图A.html'.format(word))
+    )
 
 
